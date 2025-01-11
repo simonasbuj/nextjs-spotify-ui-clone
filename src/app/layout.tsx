@@ -34,9 +34,11 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${ubuntu.variable} antialiased`}
       >
-        <Header />
-        {children}
-        <Footer />
+        <div className="flex flex-col justify-between h-screen">
+          <Header />
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );

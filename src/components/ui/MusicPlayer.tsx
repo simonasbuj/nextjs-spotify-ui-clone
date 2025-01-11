@@ -1,34 +1,38 @@
 import { useState, useEffect } from 'react';
-import { FaPlay, FaStepBackward, FaStepForward } from 'react-icons/fa';
+import { FaStepBackward, FaStepForward } from 'react-icons/fa';
 import { FaCirclePlay, FaCirclePause } from "react-icons/fa6";
 
 export default function MusicPlayer () {
-    const songLength = 32000;
-    const [currentSongTime, setCurrentSongTime] = useState(0);
-    const [isPlaying, setIsPlaying] = useState(false);
+  
+    const songLength = 32000
+    const [currentSongTime, setCurrentSongTime] = useState(0)
+    const [isPlaying, setIsPlaying] = useState(false)
+
+
 
     const handlePlayButton = () => {
-        setIsPlaying(!isPlaying);
+        setIsPlaying(!isPlaying)
     }
 
     useEffect(() => {
         let interval: NodeJS.Timeout | null = null;
         if (isPlaying) {
             interval = setInterval(() => {
-                setCurrentSongTime(prevTime => Math.min(prevTime + 1, songLength));
+                setCurrentSongTime(prevTime => Math.min(prevTime + 1, songLength))
             }, 1);
         } else if (!isPlaying && interval) {
-            clearInterval(interval);
+            clearInterval(interval)
         }
         return () => {
             if (interval) {
-                clearInterval(interval);
+                clearInterval(interval)
             }
         };
-    }, [isPlaying, songLength]);
+    }, [isPlaying, songLength])
 
     return (
         <div className="text-center flex flex-col py-4 w-1/2">
+            <audio src='/sample.mp3' />
             <div className="flex items-center justify-center space-x-4">
                 <button className="text-white text-2xl"><FaStepBackward /></button>
                 <button className="text-white text-4xl" onClick={handlePlayButton}>
