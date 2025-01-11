@@ -1,5 +1,5 @@
 import Image from "next/image";
-import SearchBar from "../ui/SearchBar";
+import SearchBar from "@/components/ui/SearchBar";
 
 export default function Header () {
     return (
