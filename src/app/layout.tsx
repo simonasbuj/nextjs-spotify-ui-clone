@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Ubuntu, Inter } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/layout/Header";
+import Header from "@/components/layout/header";
 
 const ubuntu = Ubuntu({
   subsets: ["latin"],
