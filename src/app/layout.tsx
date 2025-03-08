@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import { Ubuntu, Inter } from "next/font/google";
+
 import "./globals.css";
+
 import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+
 
 const ubuntu = Ubuntu({
   subsets: ["latin"],
@@ -30,8 +34,11 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${ubuntu.variable} antialiased`}
       >
-        <Header />
-        {children}
+        <div className="flex flex-col justify-between h-screen">
+          <Header />
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );
